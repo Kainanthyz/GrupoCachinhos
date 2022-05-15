@@ -5,7 +5,7 @@ import pandas as pd
 import wikipedia
 from translate import Translator
 
-
+wikipedia.set_lang("pt")
 def tradutor(palavra):
     translator= Translator(to_lang="pt")
     translation =  translator.translate(palavra)
@@ -35,6 +35,13 @@ def ouvir():
         if "viajar" in texto:
             convertFala("Olá, bem-vindo a sua Assistente Virtual de Viagens")
             convertFala("Me chamo Mó Viagem hihihi, no que posso te ajudar?")
+            
+        
+        #Curiosidades
+        elif "curiosidades" and "curiosidade" in texto:
+            s=str(input("Digita ai krl: "))
+            l=wikipedia.summary(s)
+            print(l)
 
         #Previsão do tempo
         elif "previsão do tempo" in texto:
